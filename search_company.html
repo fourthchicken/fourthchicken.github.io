@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/search_company.css">
+    <link rel="stylesheet" href="style/sidebar.css">
+    <title>查詢走勢</title>
+</head>
+<body>
+    <div class="background"><img src="image/block_background.png" alt=""></div>
+    <div class="iframe_background"></div>
+    <div class="find_container">
+        <ul class="company">
+        </ul>
+        <div class="if"><iframe frameborder="0" name="search_company" height="100%" width="900px" src="https://www.capital.com.tw/web/#/home"></iframe></div>
+    </div>
+
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="TaiwanCooperativeBank.html"><p>合庫8858</p></a>
+            </li>
+            <li>
+                <a href=""><p>合庫2388</p></a>
+            </li>
+            <li>
+                <a href=""><p>合庫證券定扣</p></a>
+            </li>
+            <li>
+                <a href=""><p>永豐</p></a>
+            </li>
+            <li>
+                <a href=""><p>單據收入</p></a>
+            </li>
+            <li>
+                <a href=""><p>合計</p></a>
+            </li>
+            <li>
+                <a href="search_company.html"><p>查詢走勢</p></a>
+            </li>
+        </ul>
+    </div>
+    <div class="add_company">
+        <p id="name">公司名稱</p>
+        <input type="text" id="name_input">
+        <p id="number">股票代號</p>
+        <input type="text" id="number_input">
+        <button class="add"><img src="image/add_24dp_FILL0_wght400_GRAD0_opsz24.png" alt="error"></button>
+    </div>
+    <button class="delete"><img src="image/delete_24dp_FILL0_wght400_GRAD0_opsz24.png" alt=""></button>
+    <div class="back_filter"></div>
+    <div class="delete_page">
+        <ul class="delete_company_list">
+
+        </ul>
+        <button class="delete_cancel">取消</button>
+        <button class="delete_ok">刪除</button>
+        <p>選取要刪除的項目</p>
+    </div>
+    <script src="script/jquery-3.6.0.js"></script>
+    <script src="script/search_company.js"></script>
+    
+    
+</body>
+</html>
