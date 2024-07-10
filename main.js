@@ -32,15 +32,16 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
+      sandbox:false,
       preload: path.join(__dirname, 'preload.js')
     },
     show:false,
-    frame:true
+    frame:false
   })
   
   electron.Menu.setApplicationMenu(null)
   mainWindow.loadFile('TaiwanCooperativeBank.html')
-  
+  mainWindow.webContents.openDevTools()
   mainWindow.once('ready-to-show', () =>{
     setTimeout(() => {
       mainWindow.maximize()

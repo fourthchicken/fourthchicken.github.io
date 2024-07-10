@@ -1,0 +1,32 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+#titlebar_container{
+    background-color: rgb(42, 42, 42);
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    height: 64px;
+    width:100vw
+}
+
+#closeApp{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-size: 30px 30px;
+    border: none;
+    background-color: rgba(42,42,42);
+    position: fixed;
+    z-index: 10001;
+    height: 64px;
+    width: 64px;
+    top: 0px;
+    right: 0px;
+}
+
+#closeApp:hover{
+    background-color: red;
+}
