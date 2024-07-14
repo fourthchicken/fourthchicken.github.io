@@ -4,12 +4,17 @@
 }
 
 #titlebar_container{
+    -webkit-app-region: drag;
     background-color: rgb(42, 42, 42);
     position: fixed;
     z-index: 10000;
     top: 0;
     height: 64px;
     width:100vw
+}
+
+#titlebar_container button{
+    -webkit-app-region: no-drag;
 }
 
 #closeApp{
@@ -22,11 +27,70 @@
     position: fixed;
     z-index: 10001;
     height: 64px;
-    width: 64px;
+    width: 80px;
     top: 0px;
     right: 0px;
 }
 
 #closeApp:hover{
     background-color: red;
+}
+
+#unmaximizeApp{
+    justify-content: center;
+    align-content: center;
+    background-size: 30px 30px;
+    border: none;
+    background-color: rgba(42,42,42);
+    position: fixed;
+    z-index: 10001;
+    height: 64px;
+    width: 80px;
+    top: 0px;
+    right: 80px;
+}
+
+#unmaximizeApp:hover{
+    background-color: rgb(69, 69, 69);
+}
+
+#minimizeApp{
+    justify-content: center;
+    align-items:baseline;
+    background-size: 30px 30px;
+    border: none;
+    background-color: rgba(42,42,42);
+    position: fixed;
+    z-index: 10001;
+    height: 64px;
+    width: 80px;
+    top: 0px;
+    right: 160px;
+}
+
+#minimizeApp:hover{
+    background-color: rgb(69, 69, 69);
+}
+
+#icon{
+    justify-content: center;
+    align-items:baseline;
+    background-size: 30px 30px;
+    border: none;
+    background-color: rgba(42,42,42);
+    position: fixed;
+    z-index: 10001;
+    height: 64px;
+    width: 80px;
+    top: 0px;
+    left: 0;
+}
+
+#title{
+    font-size: 30px;
+    position: fixed;
+    z-index: 10001;
+    left: 80px;
+    top: 15.25px;
+    color: white;
 }

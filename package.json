@@ -5,13 +5,38 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron main.js",
-    "watch:scss": "node-sass -w test.scss test.css"
+    "watch:scss": "node-sass -w test.scss test.css",
+    "pack": "electron-builder --dir",
+		"pack-dist": "electron-builder"
   },
+  "build": {
+		"appId": "儒維公司作帳軟體.app",
+		"productName": "儒維公司作帳軟體",
+		"directories": {
+			"output": "pack" 
+		},
+		"files": [ 
+			"**/*",     
+			"!.vscode", 
+			"build/"    
+		],
+		"asar": false,  
+		"win": {
+		  	"icon": "image/icon.png"
+		},
+		"mac": {
+		  	"icon": "image/icon.png"
+		},
+		"linux": {
+		  	"icon": "image/icon.png"
+		}
+	},
   "author": "fourthchicken",
   "license": "ISC",
   "description": "",
-  "dependencies": {
+  "devDependencies": {
     "electron": "^31.1.0",
+    "electron-builder": "^24.13.3",
     "electron-drag": "^2.0.0",
     "node-sass": "^9.0.0"
   }

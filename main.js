@@ -4,11 +4,11 @@ const path = require('node:path')
 const electron = require('electron')
 const { ipcRenderer } = require('electron')
 
-
-
+var mainWindow
+var loading
 
 function createWindow () {
-  const loading = new BrowserWindow({
+  loading = new BrowserWindow({
     width:600,
     height:400,
     webPreferences: {
@@ -27,29 +27,30 @@ function createWindow () {
 
 
 
-  // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+
+  mainWindow = new BrowserWindow({
+    width: 1687,
+    height: 835,
     webPreferences: {
       sandbox:false,
       preload: path.join(__dirname, 'preload.js')
     },
     show:false,
-    frame:false
+    frame:false,
+    icon: 'image/money.png'
   })
-  
   electron.Menu.setApplicationMenu(null)
-  mainWindow.loadFile('TaiwanCooperativeBank.html')
-  mainWindow.webContents.openDevTools()
+  mainWindow.loadFile('index.html')
+  // mainWindow.webContents.openDevTools()
   mainWindow.once('ready-to-show', () =>{
     setTimeout(() => {
       mainWindow.maximize()
       loading.hide()
       loading.close()
       mainWindow.show()
-    }, 1000);  
+    }, 3000);  
   })
+  
 
 
 
@@ -79,4 +80,15 @@ ipcMain.on('close', ()=>{
   app.quit()
 })
 
+ipcMain.on('unmaximize', ()=>{
+  mainWindow.unmaximize()
+})
+
+ipcMain.on('maximize', ()=>{
+  mainWindow.maximize()
+})
+
+ipcMain.on('minimize', ()=>{
+  mainWindow.minimize()
+})
 
