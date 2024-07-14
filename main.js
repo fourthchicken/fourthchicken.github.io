@@ -15,7 +15,8 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     },
     frame:false,
-    show:false
+    show:false,
+    icon: 'image/money.png'
   })
   loading.loadFile('waiting.html')
   loading.once('ready-to-show', () =>{
@@ -41,7 +42,7 @@ function createWindow () {
   })
   electron.Menu.setApplicationMenu(null)
   mainWindow.loadFile('index.html')
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
   mainWindow.once('ready-to-show', () =>{
     setTimeout(() => {
       mainWindow.maximize()
