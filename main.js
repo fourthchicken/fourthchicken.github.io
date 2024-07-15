@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain} = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('node:path')
 
 const electron = require('electron')
@@ -16,7 +16,8 @@ function createWindow () {
     },
     frame:false,
     show:false,
-    icon: 'image/money.png'
+    icon: 'image/money.png',
+    resizable:false
   })
   loading.loadFile('waiting.html')
   loading.once('ready-to-show', () =>{
@@ -38,11 +39,12 @@ function createWindow () {
     },
     show:false,
     frame:false,
-    icon: 'image/money.png'
+    icon: 'image/money.png',
+    minHeight:658,
+    minWidth:1330
   })
   electron.Menu.setApplicationMenu(null)
   mainWindow.loadFile('index.html')
-  mainWindow.webContents.openDevTools()
   mainWindow.once('ready-to-show', () =>{
     setTimeout(() => {
       mainWindow.maximize()
@@ -91,5 +93,9 @@ ipcMain.on('maximize', ()=>{
 
 ipcMain.on('minimize', ()=>{
   mainWindow.minimize()
+})
+
+ipcMain.on('F12', () =>{
+  mainWindow.webContents.openDevTools()
 })
 

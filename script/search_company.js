@@ -14,7 +14,9 @@ else{
         var num = companyList[i].number
         $(".company").append('<li data-number:"' + i + '"><a href="' + 'https://www.capital.com.tw/web/#/stock-analysis/qoute;stockSymbol='+num + '"' + 'target="search_company"><p>' + company_name + '</p></a></li>')
     }
+    $(".company").append('<br class="br"><br class="br"><br class="br"><br class="br"><br class="br"><br class="br"><br class="br"><br class="br">')
 }
+$(".find_container").animate({scrollTop: $(".find_container").height()}, 0)
 console.log("start")
 
 $(".add_company .add").on("click", add_company)
@@ -26,16 +28,15 @@ $(".delete_page .delete_cancel").on("click", delete_cancel)
 $(".delete_page .delete_ok").on("click", delete_ok)
 
 function add_company(){
-    console.log(1)
     if($(".add_company #name_input").val() == ""){
-        alert("請填入公司名稱")
         return
     }
     if($(".add_company #number_input").val() == ""){
-        alert("請填入股票代號")
         return
     }
-    $(".company").append('<li><a href="' + 'https://www.capital.com.tw/web/#/stock-analysis/qoute;stockSymbol='+$(".add_company #number_input").val() + '"' + 'target="search_company"><p>' + $(".add_company #name_input").val() + '</p></a></li>')
+
+    // $(".company").append('<li><a href="' + 'https://www.capital.com.tw/web/#/stock-analysis/qoute;stockSymbol='+$(".add_company #number_input").val() + '"' + 'target="search_company"><p>' + $(".add_company #name_input").val() + '</p></a></li>')
+    
     var save = {
         company: $(".add_company #name_input").val(),
         number: $(".add_company #number_input").val(),
@@ -46,6 +47,9 @@ function add_company(){
     companyList.push(save)
     var s = JSON.stringify(companyList)
     localStorage.setItem('search_company_list', s)
+
+    window.location.reload()
+    
 }
 
 function delete_company(){
@@ -53,11 +57,11 @@ function delete_company(){
     $(".back_filter").css("display", "block")
     $(".delete_page").css("display", "flex")
     $(".delete_company_list").empty()
+    $(".delete_company_list").append('<br><br><br>')
     for(let i = 0; i < companyList.length; i ++){
         $(".delete_company_list").append('<li>' + '<input type="checkbox" data-number="' + i + '">' + companyList[i].company + '</li>')
         complete_array.push(false)
     }
-    console.log(companyList.length)
     if(companyList.length == 0){
         $(".delete_company_list").append('<li class="nothing"><p>沒東西能刪了...</p><img src="image/bye.gif"></li>')
     }

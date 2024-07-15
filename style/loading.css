@@ -17,6 +17,7 @@ body {
   overflow: hidden; }
 
 #container {
+  border-radius: 10px;
   position: relative;
   transform: scale(0.725); }
 
